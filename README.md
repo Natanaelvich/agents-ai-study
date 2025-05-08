@@ -117,7 +117,10 @@ model Customer {
 - Armazenar estado de conversas por usuário
 
 ### 6. Interface Simples (CLI ou Web)
-- CLI ou integração com WhatsApp API / React frontend opcional
+- CLI ou integração com React frontend opcional
+
+### 7. 📅 Agendamento
+- Integração com Google Calendar
 
 ---
 
@@ -138,33 +141,86 @@ model Customer {
 ### 4. 📚 Base de Conhecimento (RAG)
 - Responder dúvidas com LangChain + Embeddings + Redis
 
-### 5. 🚚 Atualizar Status de Pedido via API
-- Simular integração com transportadora
-
-### 6. 🔁 Follow-up Automático
+### 5. 🔁 Follow-up Automático
 - Perguntar feedback após entrega
 
-### 7. 🔐 Login com Token
+### 6. 🔐 Login com Token
 - Sessões seguras por cliente
 
-### 8. 🔍 Análise de Conversas
+### 7. 🔍 Análise de Conversas
 - Resumir e classificar conversas com LLM
 
-### 9. 📅 Agendamento
+### 8. 📅 Agendamento
 - Integração com Google Calendar
-
-### 10. 🌐 Suporte Multilingue
-- Auto detectar idioma e responder conforme necessário
-
 ---
 
 ## ✅ Testes e Casos de Uso
-- Cliente pergunta por produto → recebe resposta
-- Cliente fornece dados → chatbot armazena
-- Pedido realizado → salvo no banco
-- Caso complexo → escalado para humano
+
+### Exemplo de Fluxo Completo de Atendimento
+
+**Cenário:** Maria deseja comprar um produto e utilizar o atendimento automatizado.
+
+1. **Início da Conversa:**
+   - Maria inicia o chat perguntando: "Quais produtos estão disponíveis?"
+   - O AI Agent consulta o banco de dados e responde com a lista de produtos e preços.
+
+2. **Escolha do Produto:**
+   - Maria escolhe um produto e pergunta: "Quero comprar o Produto X. Como faço?"
+   - O AI Agent solicita os dados necessários: nome, endereço e quantidade desejada.
+
+3. **Coleta de Dados:**
+   - Maria informa seus dados.
+   - O AI Agent valida as informações e confirma o pedido.
+
+4. **Registro do Pedido:**
+   - O pedido é registrado no banco de dados.
+   - O AI Agent informa o número do pedido e o status inicial (ex: "Aguardando pagamento").
+
+5. **Dúvida ou Problema:**
+   - Maria pergunta sobre prazo de entrega ou relata um problema.
+   - O AI Agent tenta responder com base na base de conhecimento.
+   - Se não conseguir resolver, oferece encaminhamento para um atendente humano.
+
+6. **Encaminhamento para Humano (se necessário):**
+   - Caso Maria aceite, o caso é transferido para um atendente, que recebe o histórico da conversa.
+
+7. **Finalização:**
+   - Maria recebe confirmação do atendimento e pode avaliar a experiência.
 
 ---
+
+Esses testes cobrem desde dúvidas simples até o registro de pedidos e o handoff para atendimento humano, garantindo que o fluxo do agente seja robusto e eficiente.
+
+### Critérios de Aceite
+
+Para considerar o fluxo de atendimento aprovado, os seguintes requisitos técnicos devem ser atendidos:
+
+- **Banco de Dados:**
+  - Pedido salvo corretamente no banco (Prisma/SQLite ou PostgreSQL), com todos os campos obrigatórios preenchidos (cliente, itens, endereço, status, data).
+  - Cliente cadastrado corretamente, sem duplicidade.
+
+- **Redis:**
+  - Contexto da conversa salvo no Redis para cada usuário, incluindo histórico de mensagens e status do atendimento.
+  - Chaves de sessão expiram corretamente após o tempo configurado.
+
+- **Planilha (Google Sheets):**
+  - Registro do pedido e/ou log de conversas atualizado na planilha, com dados do cliente, itens e status.
+  - Não deve haver perda de dados ou inconsistências entre banco e planilha.
+
+- **API/Backend:**
+  - Endpoints respondem corretamente (200 OK) e validam dados obrigatórios.
+  - Logs de eventos importantes (criação de pedido, erro, escalonamento para humano) registrados.
+
+- **Escalonamento para Humano:**
+  - Quando necessário, o handoff transfere o histórico completo da conversa para o atendente humano.
+
+- **Emails (se aplicável):**
+  - Notificações enviadas corretamente para humanos em caso de erro ou novo pedido.
+
+- **Testes Automatizados:**
+  - Testes de integração cobrem os principais fluxos (consulta, pedido, escalonamento, persistência de dados).
+
+Se todos esses requisitos técnicos forem cumpridos durante o teste, o fluxo é considerado aceito.
 
 ## 🚀 Futuras Melhorias
 - Migrar para AutogenJS
