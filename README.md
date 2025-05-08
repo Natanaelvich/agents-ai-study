@@ -1,14 +1,14 @@
-# LangChain RAG Embeddings Study
+# AI Agents Study
 
-A study repository for exploring LangChain, RAG (Retrieval-Augmented Generation), embeddings, and semantic vector search techniques.
+A study repository for exploring AI agents, autonomous systems, and agent-based architectures.
 
 ## Project Description
 
 This repository contains experiments and implementations of various techniques related to:
-- LangChain for building LLM applications
-- RAG (Retrieval-Augmented Generation) patterns
-- Vector embeddings and semantic search
-- Document processing and chunking strategies
+- AI Agents and autonomous systems
+- Multi-agent architectures and communication
+- Agent decision-making and planning
+- Task automation and orchestration
 
 ## Setup
 
@@ -36,9 +36,9 @@ npm run dev
 ## Technologies
 
 - TypeScript
-- LangChain
 - Node.js
-- Vector databases (TBD)
+- AI Agent frameworks
+- Task orchestration tools
 
 ## License
 

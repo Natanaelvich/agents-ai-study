@@ -1,7 +1,7 @@
 {
-  "name": "langchain-rag-embeddings-study",
+  "name": "ai-agents-study",
   "version": "0.1.0",
-  "description": "Study repo for LangChain, RAG, embeddings, and semantic vector search techniques",
+  "description": "Study repo for AI agents, autonomous systems, and agent-based architectures",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -13,11 +13,10 @@
     "studio": "drizzle-kit studio"
   },
   "keywords": [
-    "langchain",
-    "rag",
-    "embeddings",
-    "vector-search",
-    "semantic-search",
+    "ai-agents",
+    "autonomous-systems",
+    "multi-agent",
+    "task-automation",
     "study"
   ],
   "author": "",
