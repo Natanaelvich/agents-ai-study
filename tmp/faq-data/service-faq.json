@@ -1,0 +1,45 @@
+{
+  "category": "Serviços",
+  "faqs": [
+    {
+      "id": "S001",
+      "question": "Como posso solicitar o serviço de instalação?",
+      "answer": "Para solicitar o serviço de instalação, você pode entrar em contato através do nosso site, aplicativo ou central de atendimento. Nossos técnicos agendam uma visita em até 48 horas úteis após a solicitação.",
+      "tags": ["instalação", "agendamento", "suporte"],
+      "service_type": "Instalação",
+      "last_updated": "2024-03-15"
+    },
+    {
+      "id": "S002",
+      "question": "Qual é o prazo de entrega do serviço?",
+      "answer": "O prazo padrão de entrega é de 5 a 7 dias úteis. Para serviços expressos, o prazo é reduzido para 2 a 3 dias úteis. Prazos podem variar de acordo com a região e disponibilidade.",
+      "tags": ["prazo", "entrega", "logística"],
+      "service_type": "Entrega",
+      "last_updated": "2024-03-10"
+    },
+    {
+      "id": "S003",
+      "question": "Como funciona o serviço de manutenção preventiva?",
+      "answer": "O serviço de manutenção preventiva é realizado a cada 6 meses. Inclui verificação completa do sistema, limpeza, ajustes e substituição de peças desgastadas. O agendamento é automático após a contratação.",
+      "tags": ["manutenção", "preventiva", "serviço"],
+      "service_type": "Manutenção",
+      "last_updated": "2024-03-01"
+    },
+    {
+      "id": "S004",
+      "question": "Quais são as formas de pagamento aceitas?",
+      "answer": "Aceitamos cartões de crédito (todas as bandeiras), débito, PIX, boleto bancário e transferência. Para empresas, também oferecemos a opção de faturamento com prazo de 30 dias.",
+      "tags": ["pagamento", "financeiro", "opções"],
+      "service_type": "Financeiro",
+      "last_updated": "2024-03-05"
+    },
+    {
+      "id": "S005",
+      "question": "Como posso cancelar ou reagendar um serviço?",
+      "answer": "Você pode cancelar ou reagendar através do nosso site, aplicativo ou central de atendimento com até 24 horas de antecedência. Cancelamentos em cima da hora podem estar sujeitos a taxas.",
+      "tags": ["cancelamento", "reagendamento", "política"],
+      "service_type": "Agendamento",
+      "last_updated": "2024-03-12"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "category": "introduction",
+  "concepts": [
+    {
+      "id": "agents-001",
+      "title": "O que são AI Agents",
+      "description": "Sistemas autônomos que podem interagir com ferramentas e dados para realizar tarefas complexas",
+      "details": "AI Agents são sistemas que combinam capacidades de IA com habilidades de automação e tomada de decisão. Eles são caracterizados por sua autonomia, capacidade de interação com ferramentas externas e aprendizado contínuo.",
+      "tags": ["conceitos-básicos", "definição", "características"],
+      "last_updated": "2024-03-20",
+      "examples": [
+        "Assistentes virtuais que podem agendar reuniões",
+        "Sistemas de automação que monitoram e ajustam processos",
+        "Agentes de pesquisa que coletam e sintetizam informações"
+      ],
+      "best_practices": [
+        "Definir claramente o escopo e objetivos do agent",
+        "Implementar mecanismos de feedback e aprendizado",
+        "Garantir transparência nas decisões tomadas"
+      ],
+      "complexity": "básico"
+    },
+    {
+      "id": "agents-002",
+      "title": "Pipeline de um Agent",
+      "description": "Fluxo de processamento que um AI Agent segue para executar suas tarefas",
+      "details": "O pipeline de um Agent segue uma sequência lógica: Entrada → Planejamento → Execução → Feedback → Ajuste. Cada etapa é crucial para o funcionamento eficiente do sistema.",
+      "tags": ["arquitetura", "fluxo", "processo"],
+      "last_updated": "2024-03-20",
+      "examples": [
+        "Processamento de uma solicitação do usuário",
+        "Execução de uma tarefa complexa",
+        "Ajuste de estratégia baseado em feedback"
+      ],
+      "best_practices": [
+        "Manter cada etapa do pipeline bem definida",
+        "Implementar mecanismos de recuperação de erros",
+        "Garantir feedback loop eficiente"
+      ],
+      "complexity": "intermediário"
+    },
+    {
+      "id": "agents-003",
+      "title": "Componentes Principais",
+      "description": "Elementos fundamentais que compõem um AI Agent",
+      "details": "Os componentes principais incluem: LLM Core (processamento de linguagem), Ferramentas (extensão de capacidades), Memória (armazenamento de contexto) e Orquestrador (coordenação de ações).",
+      "tags": ["componentes", "arquitetura", "sistema"],
+      "last_updated": "2024-03-20",
+      "examples": [
+        "LLM Core: GPT-4 para processamento de linguagem",
+        "Ferramentas: APIs de busca e processamento de dados",
+        "Memória: Banco de dados vetorial para contexto",
+        "Orquestrador: Sistema de coordenação de tarefas"
+      ],
+      "best_practices": [
+        "Escolher componentes adequados ao caso de uso",
+        "Garantir integração eficiente entre componentes",
+        "Manter componentes modulares e extensíveis"
+      ],
+      "complexity": "intermediário"
+    }
+  ]
+} 

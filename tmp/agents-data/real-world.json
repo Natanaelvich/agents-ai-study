@@ -1,0 +1,62 @@
+{
+  "category": "real-world",
+  "concepts": [
+    {
+      "id": "agents-101",
+      "title": "Assistentes de Produtividade",
+      "description": "AI Agents que automatizam tarefas complexas de produtividade",
+      "details": "Assistentes de produtividade são AI Agents especializados em automatizar e otimizar tarefas do dia a dia, como agendamento, organização de documentos e gestão de projetos.",
+      "tags": ["produtividade", "automação", "aplicações"],
+      "last_updated": "2024-03-20",
+      "examples": [
+        "Agentes de agendamento de reuniões",
+        "Assistentes de organização de documentos",
+        "Sistemas de gestão de projetos inteligentes"
+      ],
+      "best_practices": [
+        "Integrar com ferramentas existentes",
+        "Manter interface amigável",
+        "Garantir confiabilidade nas ações"
+      ],
+      "complexity": "intermediário"
+    },
+    {
+      "id": "agents-102",
+      "title": "Análise de Dados",
+      "description": "AI Agents especializados em processamento e análise de dados",
+      "details": "Agents de análise de dados automatizam o processamento, análise e geração de insights a partir de grandes volumes de dados, transformando dados brutos em informações acionáveis.",
+      "tags": ["dados", "análise", "insights"],
+      "last_updated": "2024-03-20",
+      "examples": [
+        "Análise de tendências de mercado",
+        "Processamento de dados de sensores",
+        "Geração de relatórios automáticos"
+      ],
+      "best_practices": [
+        "Implementar validação de dados",
+        "Garantir precisão nas análises",
+        "Manter transparência nos métodos"
+      ],
+      "complexity": "avançado"
+    },
+    {
+      "id": "agents-103",
+      "title": "Atendimento ao Cliente",
+      "description": "AI Agents para automação e melhoria do atendimento ao cliente",
+      "details": "Agents de atendimento ao cliente automatizam respostas, resolvem problemas e melhoram a experiência do cliente através de interações inteligentes e personalizadas.",
+      "tags": ["atendimento", "suporte", "cliente"],
+      "last_updated": "2024-03-20",
+      "examples": [
+        "Chatbots inteligentes",
+        "Sistemas de resolução de problemas",
+        "Agentes de follow-up"
+      ],
+      "best_practices": [
+        "Manter tom personalizado",
+        "Implementar escalonamento eficiente",
+        "Garantir resolução efetiva"
+      ],
+      "complexity": "intermediário"
+    }
+  ]
+} 

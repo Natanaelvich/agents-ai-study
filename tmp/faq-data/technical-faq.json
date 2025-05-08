@@ -1,0 +1,45 @@
+{
+  "category": "Suporte Técnico",
+  "faqs": [
+    {
+      "id": "T001",
+      "question": "Como faço para resetar o dispositivo para as configurações de fábrica?",
+      "answer": "Para resetar o dispositivo: 1) Acesse as configurações, 2) Vá em 'Sistema', 3) Selecione 'Reset', 4) Escolha 'Resetar para configurações de fábrica'. Lembre-se de fazer backup dos seus dados antes.",
+      "tags": ["reset", "configurações", "fábrica"],
+      "difficulty": "Intermediário",
+      "last_updated": "2024-03-15"
+    },
+    {
+      "id": "T002",
+      "question": "O dispositivo não está conectando à rede Wi-Fi, o que fazer?",
+      "answer": "Tente estas soluções: 1) Reinicie o roteador, 2) Verifique se a senha está correta, 3) Certifique-se que o dispositivo está no alcance do Wi-Fi, 4) Tente esquecer a rede e reconectar. Se o problema persistir, contate o suporte.",
+      "tags": ["wi-fi", "conexão", "rede"],
+      "difficulty": "Básico",
+      "last_updated": "2024-03-10"
+    },
+    {
+      "id": "T003",
+      "question": "Como atualizo o firmware do dispositivo?",
+      "answer": "Para atualizar o firmware: 1) Conecte o dispositivo à internet, 2) Vá em 'Configurações' > 'Sistema' > 'Atualizações', 3) Clique em 'Verificar atualizações', 4) Siga as instruções na tela. Mantenha o dispositivo ligado durante o processo.",
+      "tags": ["firmware", "atualização", "sistema"],
+      "difficulty": "Intermediário",
+      "last_updated": "2024-03-01"
+    },
+    {
+      "id": "T004",
+      "question": "O dispositivo está superaquecendo, como resolver?",
+      "answer": "Para resolver superaquecimento: 1) Verifique se as entradas de ar estão desobstruídas, 2) Evite usar em superfícies macias, 3) Feche aplicativos em segundo plano, 4) Use em ambiente com temperatura adequada. Se o problema persistir, contate o suporte.",
+      "tags": ["superaquecimento", "temperatura", "performance"],
+      "difficulty": "Básico",
+      "last_updated": "2024-03-05"
+    },
+    {
+      "id": "T005",
+      "question": "Como faço backup dos meus dados?",
+      "answer": "Para fazer backup: 1) Conecte o dispositivo ao computador, 2) Use o software de backup oficial, 3) Selecione os dados desejados, 4) Escolha o local de armazenamento, 5) Inicie o backup. Recomendamos fazer backup regularmente.",
+      "tags": ["backup", "dados", "segurança"],
+      "difficulty": "Intermediário",
+      "last_updated": "2024-03-12"
+    }
+  ]
+}

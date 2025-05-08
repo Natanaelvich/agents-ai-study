@@ -1,0 +1,45 @@
+{
+  "category": "Produtos",
+  "faqs": [
+    {
+      "id": "P001",
+      "question": "Quais são as especificações técnicas do produto?",
+      "answer": "Nosso produto possui processador de última geração, 16GB de RAM, 512GB de armazenamento SSD e tela de 15.6 polegadas com resolução 4K. A bateria tem duração de até 8 horas em uso normal.",
+      "tags": ["especificações", "técnico", "hardware"],
+      "related_products": ["Modelo Pro", "Modelo Lite"],
+      "last_updated": "2024-03-15"
+    },
+    {
+      "id": "P002",
+      "question": "O produto tem garantia? Por quanto tempo?",
+      "answer": "Sim, todos os nossos produtos possuem garantia de 12 meses contra defeitos de fabricação. A garantia cobre problemas de hardware e software que não sejam causados por uso inadequado.",
+      "tags": ["garantia", "suporte", "política"],
+      "related_products": ["Todos os produtos"],
+      "last_updated": "2024-03-10"
+    },
+    {
+      "id": "P003",
+      "question": "Quais são as opções de cores disponíveis?",
+      "answer": "Atualmente oferecemos o produto em três cores: Prata Espacial, Grafite e Dourado. As cores podem variar de acordo com o modelo específico.",
+      "tags": ["cores", "personalização", "estilo"],
+      "related_products": ["Modelo Pro", "Modelo Lite", "Modelo Max"],
+      "last_updated": "2024-03-01"
+    },
+    {
+      "id": "P004",
+      "question": "O produto é compatível com quais sistemas operacionais?",
+      "answer": "Nosso produto é compatível com Windows 11, macOS e Linux. Algumas funcionalidades específicas podem variar dependendo do sistema operacional escolhido.",
+      "tags": ["compatibilidade", "sistema operacional", "software"],
+      "related_products": ["Modelo Pro", "Modelo Lite"],
+      "last_updated": "2024-03-05"
+    },
+    {
+      "id": "P005",
+      "question": "Quais acessórios vêm incluídos na embalagem?",
+      "answer": "A embalagem inclui: carregador, cabo USB-C, manual do usuário, garantia e um estojo protetor. Acessórios adicionais podem ser adquiridos separadamente.",
+      "tags": ["acessórios", "embalagem", "conteúdo"],
+      "related_products": ["Todos os produtos"],
+      "last_updated": "2024-03-12"
+    }
+  ]
+}
