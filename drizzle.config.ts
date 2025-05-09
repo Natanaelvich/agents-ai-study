@@ -1,15 +1,26 @@
-import type { Config } from "drizzle-kit";
+import type { Config } from 'drizzle-kit';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export default {
-  schema: "./src/schema.ts",
-  out: "./drizzle",
-  dialect: "postgresql",
+  schema: './src/db/schema.ts',
+  out: './drizzle',
+  dialect: 'postgresql',
   dbCredentials: {
-    host: "127.0.0.1",
-    port: 5432,
-    user: "postgres",
-    password: "postgres",
-    database: "vectordb",
-    ssl: false
+    host: process.env.DB_HOST || 'localhost',
+    port: Number(process.env.DB_PORT) || 5432,
+    user: process.env.DB_USER || 'postgres',
+    password: process.env.DB_PASSWORD || 'postgres',
+    database: process.env.DB_NAME || 'vectordb',
+    ssl: false, // Disable SSL for local development
   },
+  // Configurações adicionais para migrações
+  migrations: {
+    table: '__drizzle_migrations__',
+    schema: 'public',
+  },
+  // Configurações de desenvolvimento
+  verbose: true,
+  strict: true,
 } satisfies Config; 
