@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import chatRoutes from './chat.routes';
 
 const router = Router();
 
@@ -7,5 +8,8 @@ const router = Router();
 
 // Register routes here
 // Example: router.use('/users', userRoutes);
+
+// Chat routes
+router.use('/chat', chatRoutes);
 
 export default router; 
