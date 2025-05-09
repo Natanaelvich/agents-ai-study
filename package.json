@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts",
     "start": "node dist/index.js",
     "test": "jest",
     "lint": "eslint . --ext .ts",
@@ -26,14 +26,19 @@
     "@langchain/core": "^0.3.51",
     "@langchain/openai": "^0.5.10",
     "@langchain/textsplitters": "^0.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.43.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
     "langchain": "^0.3.24",
     "pdf-parse": "^1.1.1",
     "pg": "^8.15.6",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.1",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.24",
     "@types/pg": "^8.11.14",
