@@ -1,19 +1,20 @@
 # 📋 Tasks do Projeto AI Agents Study
 
 ## 1. Setup Inicial
-- [ ] Inicializar projeto Node.js com TypeScript
-- [ ] Instalar dependências principais
-- [ ] Configurar arquivos de ambiente (.env)
+- [x] Inicializar projeto Node.js com TypeScript
+- [x] Instalar dependências principais
+- [x] Configurar arquivos de ambiente (.env)
 
 ## 2. Modelagem e Banco de Dados
-- [ ] Definir modelos no Prisma (Product, Order, Customer)
-- [ ] Executar migrações e criar banco SQLite/PostgreSQL
-- [ ] Implementar seed de dados para testes
+- [x] Definir schema com Drizzle (Product, Order, Customer)
+- [x] Configurar PostgreSQL com pgvector
+- [x] Criar migrações com drizzle-kit
+- [x] Implementar seed de dados para testes
 
 ## 3. Backend/API
-- [ ] Criar endpoints Express:
-  - [ ] POST /chat (mensagem e resposta)
-  - [ ] POST /handoff (transferência para humano)
+- [x] Criar endpoints Express:
+  - [x] POST /chat (mensagem e resposta)
+  - [x] POST /handoff (transferência para humano)
 - [ ] Implementar lógica do agente com LangChain
 - [ ] Implementar integração com Redis para contexto
 
