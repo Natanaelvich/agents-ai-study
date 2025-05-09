@@ -1,4 +1,4 @@
-import { pgTable, serial, text, timestamp, integer, jsonb } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, timestamp, integer, jsonb, json } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
 // Products table
@@ -31,6 +31,16 @@ export const orders = pgTable('orders', {
   address: text('address').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
+
+// Messages table
+export const messages = pgTable('messages', {
+  id: serial('id').primaryKey(),
+  sessionId: text('session_id').notNull(),
+  content: text('content').notNull(),
+  role: text('role', { enum: ['user', 'assistant', 'system'] }).notNull(),
+  timestamp: timestamp('timestamp').defaultNow().notNull(),
+  metadata: json('metadata'),
 });
 
 // Relations
