@@ -1,0 +1,57 @@
+@baseUrl = http://localhost:3000/api
+@sessionId = test-session-123
+
+### Send a message to the chat
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+    "sessionId": "{{sessionId}}",
+    "message": "Olá, gostaria de saber mais sobre os produtos disponíveis"
+}
+
+### Send another message in the same session
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+    "sessionId": "{{sessionId}}",
+    "message": "Quais são os produtos mais vendidos?"
+}
+
+### Request handoff to human agent
+POST {{baseUrl}}/chat/handoff
+Content-Type: application/json
+
+{
+    "sessionId": "{{sessionId}}",
+    "reason": "Cliente solicitou atendimento humano"
+}
+
+### Get chat history for a session
+GET {{baseUrl}}/chat/{{sessionId}}
+
+### Test with a new session
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+    "sessionId": "new-session-456",
+    "message": "Preciso de ajuda com meu pedido #123"
+}
+
+### Test error handling - Missing sessionId
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+    "message": "This should fail"
+}
+
+### Test error handling - Missing message
+POST {{baseUrl}}/chat
+Content-Type: application/json
+
+{
+    "sessionId": "{{sessionId}}"
+} 
