@@ -39,6 +39,16 @@ interface HistoryResponse {
 const API_BASE_URL = 'http://localhost:3000/api';
 const SESSION_ID = 'test-session-' + Date.now();
 
+// ANSI color codes for console output
+const colors = {
+  reset: '\x1b[0m',
+  user: '\x1b[34m', // Blue
+  assistant: '\x1b[32m', // Green
+  system: '\x1b[33m', // Yellow
+  error: '\x1b[31m', // Red
+  timestamp: '\x1b[90m', // Gray
+};
+
 // Helper function to make API calls
 async function makeRequest<T>(endpoint: string, method: string, body?: any): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${endpoint}`, {
@@ -54,128 +64,131 @@ async function makeRequest<T>(endpoint: string, method: string, body?: any): Pro
     throw new Error(`API request failed: ${response.status} ${response.statusText}\n${errorText}`);
   }
 
-  const data = await response.json();
-  console.log(`\n🔍 API Response from ${endpoint}:`, JSON.stringify(data, null, 2));
-  return data as T;
+  return response.json() as Promise<T>;
 }
 
 // Helper function to simulate a delay
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Helper function to log messages with timestamps
+// Helper function to log messages with timestamps and colors
 function logMessage(role: string, content: string) {
   const timestamp = new Date().toISOString();
-  console.log(`\n[${timestamp}] ${role.toUpperCase()}:`);
-  console.log(content);
-  console.log('-'.repeat(80));
+  const color = colors[role.toLowerCase() as keyof typeof colors] || colors.reset;
+  
+  console.log(`\n${colors.timestamp}[${timestamp}]${colors.reset} ${color}${role.toUpperCase()}:${colors.reset}`);
+  console.log(`${color}${content}${colors.reset}`);
+  console.log(`${colors.timestamp}${'-'.repeat(80)}${colors.reset}`);
 }
 
 /**
  * Main test function that simulates a user story
  */
 async function runUserStory() {
-  console.log('\n🚀 Starting User Story Test');
+  console.log('\n🚀 Iniciando Teste de Fluxo de Conversa');
   console.log('='.repeat(80));
 
   try {
-    // 1. Initial greeting and product inquiry
-    logMessage('User', 'Hi, I\'m interested in buying a new laptop. Can you help me?');
+    // 1. Saudação inicial e consulta de produto
+    logMessage('User', 'Olá, estou interessado em comprar um novo notebook. Você pode me ajudar?');
     const response1 = await makeRequest<ChatResponse>('/chat', 'POST', {
       sessionId: SESSION_ID,
-      message: 'Hi, I\'m interested in buying a new laptop. Can you help me?',
+      message: 'Olá, estou interessado em comprar um novo notebook. Você pode me ajudar?',
     });
     
     if (!response1?.response?.content) {
-      throw new Error('Invalid response format from chat endpoint');
+      throw new Error('Formato de resposta inválido do endpoint de chat');
     }
     
     logMessage('Assistant', response1.response.content);
 
-    // Wait a bit to simulate real conversation
+    // Aguarda um pouco para simular conversa real
     await delay(2000);
 
-    // 2. Ask about specific product
-    logMessage('User', 'What laptops do you have in stock?');
+    // 2. Pergunta sobre produto específico
+    logMessage('User', 'Quais notebooks vocês têm em estoque?');
     const response2 = await makeRequest<ChatResponse>('/chat', 'POST', {
       sessionId: SESSION_ID,
-      message: 'What laptops do you have in stock?',
+      message: 'Quais notebooks vocês têm em estoque?',
     });
     
     if (!response2?.response?.content) {
-      throw new Error('Invalid response format from chat endpoint');
+      throw new Error('Formato de resposta inválido do endpoint de chat');
     }
     
     logMessage('Assistant', response2.response.content);
 
-    // Wait a bit
+    // Aguarda um pouco
     await delay(2000);
 
-    // 3. Ask about pricing
-    logMessage('User', 'How much does the MacBook Pro cost?');
+    // 3. Pergunta sobre preço
+    logMessage('User', 'Quanto custa o MacBook Pro?');
     const response3 = await makeRequest<ChatResponse>('/chat', 'POST', {
       sessionId: SESSION_ID,
-      message: 'How much does the MacBook Pro cost?',
+      message: 'Quanto custa o MacBook Pro?',
     });
     
     if (!response3?.response?.content) {
-      throw new Error('Invalid response format from chat endpoint');
+      throw new Error('Formato de resposta inválido do endpoint de chat');
     }
     
     logMessage('Assistant', response3.response.content);
 
-    // Wait a bit
+    // Aguarda um pouco
     await delay(2000);
 
-    // 4. Express interest in purchase
-    logMessage('User', 'I\'d like to order the MacBook Pro. How do I proceed?');
+    // 4. Expressa interesse na compra
+    logMessage('User', 'Gostaria de encomendar o MacBook Pro. Como posso prosseguir?');
     const response4 = await makeRequest<ChatResponse>('/chat', 'POST', {
       sessionId: SESSION_ID,
-      message: 'I\'d like to order the MacBook Pro. How do I proceed?',
+      message: 'Gostaria de encomendar o MacBook Pro. Como posso prosseguir?',
     });
     
     if (!response4?.response?.content) {
-      throw new Error('Invalid response format from chat endpoint');
+      throw new Error('Formato de resposta inválido do endpoint de chat');
     }
     
     logMessage('Assistant', response4.response.content);
 
-    // Wait a bit
+    // Aguarda um pouco
     await delay(2000);
 
-    // 5. Request human assistance
-    logMessage('User', 'Actually, I have some specific questions about the warranty. Can I talk to a human?');
+    // 5. Solicita assistência humana
+    logMessage('User', 'Na verdade, tenho algumas dúvidas específicas sobre a garantia. Posso falar com um atendente?');
     const response5 = await makeRequest<ChatResponse>('/chat', 'POST', {
       sessionId: SESSION_ID,
-      message: 'Actually, I have some specific questions about the warranty. Can I talk to a human?',
+      message: 'Na verdade, tenho algumas dúvidas específicas sobre a garantia. Posso falar com um atendente?',
     });
     
     if (!response5?.response?.content) {
-      throw new Error('Invalid response format from chat endpoint');
+      throw new Error('Formato de resposta inválido do endpoint de chat');
     }
     
     logMessage('Assistant', response5.response.content);
 
-    // 6. Initiate handoff
+    // 6. Inicia transferência para humano
     const handoffResponse = await makeRequest<HandoffResponse>('/chat/handoff', 'POST', {
       sessionId: SESSION_ID,
-      reason: 'Customer has specific warranty questions',
+      reason: 'Cliente tem dúvidas específicas sobre garantia',
     });
-    logMessage('System', JSON.stringify(handoffResponse, null, 2));
+    logMessage('System', handoffResponse.message);
 
-    // 7. Get conversation history
+    // 7. Obtém histórico da conversa
     const history = await makeRequest<HistoryResponse>(`/chat/${SESSION_ID}`, 'GET');
-    console.log('\n📜 Conversation History:');
-    console.log(JSON.stringify(history, null, 2));
+    console.log('\n📜 Histórico da Conversa:');
+    history.messages.forEach(msg => {
+      const color = colors[msg.role as keyof typeof colors] || colors.reset;
+      console.log(`${color}[${msg.timestamp}] ${msg.role.toUpperCase()}: ${msg.content}${colors.reset}`);
+    });
 
   } catch (error) {
-    console.error('\n❌ Error during test:', error);
+    console.error(`\n${colors.error}❌ Erro durante o teste:${colors.reset}`, error);
     if (error instanceof Error) {
-      console.error('Error details:', error.message);
-      console.error('Stack trace:', error.stack);
+      console.error(`${colors.error}Detalhes do erro:${colors.reset}`, error.message);
+      console.error(`${colors.error}Stack trace:${colors.reset}`, error.stack);
     }
   }
 
-  console.log('\n✨ User Story Test Completed');
+  console.log('\n✨ Teste de Fluxo de Conversa Concluído');
   console.log('='.repeat(80));
 }
 
