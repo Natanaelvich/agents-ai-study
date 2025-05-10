@@ -31,11 +31,13 @@ export class CustomerServiceAgent {
           const history = await this.messageHistory.getMessages();
           
           // Format messages for the LLM
-          return [
+          const messages = [
             new SystemMessage(SYSTEM_PROMPT),
             ...history,
             new HumanMessage(input.message),
           ];
+
+          return messages;
         },
       },
       // Process with LLM

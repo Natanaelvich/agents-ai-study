@@ -16,6 +16,7 @@ export const llm = new ChatOpenAI({
   modelName: 'gpt-3.5-turbo', // Using GPT-3.5 for cost-effectiveness
   temperature: 0.7, // Controls randomness: 0 = deterministic, 1 = creative
   streaming: true, // Enable streaming for real-time responses
+  openAIApiKey: process.env.OPENAI_API_KEY,
 });
 
 /**
