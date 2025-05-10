@@ -2,6 +2,10 @@ import { Request, Response } from 'express';
 import { db } from '../db';
 import { messages } from '../db/schema';
 import { eq } from 'drizzle-orm';
+import { CustomerServiceAgent } from '../agents/agent';
+
+// Store active agent instances
+const activeAgents = new Map<string, CustomerServiceAgent>();
 
 export const chatController = {
   // Enviar mensagem e receber resposta
@@ -15,8 +19,15 @@ export const chatController = {
         });
       }
 
-      // TODO: Integrar com o modelo de linguagem para gerar resposta
-      const response = "This is a placeholder response. AI integration pending.";
+      // Get or create agent instance for this session
+      let agent = activeAgents.get(sessionId);
+      if (!agent) {
+        agent = new CustomerServiceAgent(sessionId);
+        activeAgents.set(sessionId, agent);
+      }
+
+      // Process message with AI agent
+      const response = await agent.processMessage(message);
 
       // Salvar mensagem no banco
       const [savedMessage] = await db
@@ -63,7 +74,13 @@ export const chatController = {
         });
       }
 
-      // TODO: Implementar lógica de handoff (ex: notificar equipe, criar ticket, etc)
+      // Clear agent instance for this session
+      const agent = activeAgents.get(sessionId);
+      if (agent) {
+        await agent.clearHistory();
+        activeAgents.delete(sessionId);
+      }
+
       const handoffResponse = {
         status: 'handoff_initiated',
         message: 'Your conversation will be transferred to a human agent.',
