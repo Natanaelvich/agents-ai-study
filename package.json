@@ -8,6 +8,7 @@
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts",
     "start": "node dist/index.js",
     "test": "jest",
+    "test:chat": "ts-node tests/chat-flow.test.ts",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "db:generate": "drizzle-kit generate",
@@ -58,6 +59,7 @@
     "jest": "^29.7.0",
     "prettier": "^3.2.5",
     "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "tsx": "^4.19.4",
     "typescript": "^5.3.3"
