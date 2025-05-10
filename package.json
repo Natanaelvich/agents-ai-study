@@ -31,6 +31,7 @@
     "@langchain/community": "^0.3.42",
     "@langchain/core": "^0.3.51",
     "@langchain/openai": "^0.5.10",
+    "@langchain/redis": "^0.1.1",
     "@langchain/textsplitters": "^0.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
