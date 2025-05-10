@@ -22,27 +22,38 @@ export class CustomerServiceAgent {
     // Initialize message history for this session
     this.messageHistory = createMessageHistory(sessionId);
     
-    // Create the processing chain
+    /**
+     * RunnableSequence.from creates a processing pipeline where each step's output
+     * becomes the input for the next step. It's like a conveyor belt for data:
+     * 
+     * Input -> Step 1 -> Step 2 -> Step 3 -> Output
+     * 
+     * In our case:
+     * 1. First step: Format messages (input: {message} -> output: Message[])
+     * 2. Second step: Process with LLM (input: Message[] -> output: LLMResponse)
+     * 3. Third step: Parse response (input: LLMResponse -> output: string)
+     */
     this.chain = RunnableSequence.from([
-      // Format messages for the LLM
-      {
-        messages: async (input: { message: string }) => {
-          // Get conversation history
-          const history = await this.messageHistory.getMessages();
-          
-          // Format messages for the LLM
-          const messages = [
-            new SystemMessage(SYSTEM_PROMPT),
-            ...history,
-            new HumanMessage(input.message),
-          ];
-
-          return messages;
-        },
+      // Step 1: Format messages for the LLM
+      async (input: { message: string }) => {
+        // Get conversation history
+        const history = await this.messageHistory.getMessages();
+        
+        // Format messages for the LLM
+        return [
+          new SystemMessage(SYSTEM_PROMPT),
+          ...history,
+          new HumanMessage(input.message),
+        ];
       },
-      // Process with LLM
+      // Step 2: Process with LLM
       llm,
-      // Parse the response
+      // Step 3: Parse the response
+      /**
+       * StringOutputParser converts the LLM's response into a plain string.
+       * This is necessary because LangChain's LLM responses can be complex objects,
+       * but we just want the text content for our chat interface.
+       */
       new StringOutputParser(),
     ]);
   }
@@ -59,6 +70,15 @@ export class CustomerServiceAgent {
       const response = await this.chain.invoke({ message });
 
       // Save messages to history
+      /**
+       * addMessage stores messages in Redis for conversation history.
+       * We save both:
+       * 1. The user's message (HumanMessage)
+       * 2. The AI's response (AIMessage)
+       * 
+       * This allows the agent to maintain context across multiple interactions
+       * and reference previous parts of the conversation.
+       */
       await this.messageHistory.addMessage(new HumanMessage(message));
       await this.messageHistory.addMessage(new AIMessage(response));
 
