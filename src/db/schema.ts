@@ -1,11 +1,13 @@
-import { pgTable, serial, text, timestamp, integer, jsonb, json } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, timestamp, integer, jsonb, json, decimal } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
 // Products table
 export const products = pgTable('products', {
   id: serial('id').primaryKey(),
   name: text('name').notNull(),
-  price: integer('price').notNull(),
+  description: text('description'),
+  price: decimal('price', { precision: 10, scale: 2 }),
+  features: jsonb('features'),
   stock: integer('stock').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
@@ -53,4 +55,8 @@ export const ordersRelations = relations(orders, ({ one }) => ({
     fields: [orders.customerId],
     references: [customers.id],
   }),
-})); 
+}));
+
+// Types
+export type Product = typeof products.$inferSelect;
+export type NewProduct = typeof products.$inferInsert; 
