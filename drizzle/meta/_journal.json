@@ -15,6 +15,20 @@
       "when": 1746795926504,
       "tag": "0001_medical_valeria_richards",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1746969708858,
+      "tag": "0002_fuzzy_shaman",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1746970235580,
+      "tag": "0003_lying_loa",
+      "breakpoints": true
     }
   ]
 }
