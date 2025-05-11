@@ -17,7 +17,8 @@
     "db:studio": "drizzle-kit studio",
     "db:check": "drizzle-kit check",
     "db:seed": "tsx src/db/seed.ts",
-    "db:reset": "tsx src/db/reset.ts"
+    "db:reset": "tsx src/db/reset.ts",
+    "db:embeddings": "tsx src/db/seed-embeddings.ts"
   },
   "keywords": [
     "ai-agents",
@@ -44,7 +45,8 @@
     "pdf-parse": "^1.1.1",
     "pg": "^8.15.6",
     "redis": "^5.0.1",
-    "uuid": "^11.1.0"
+    "uuid": "^11.1.0",
+    "postgres": "^3.4.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.18",
